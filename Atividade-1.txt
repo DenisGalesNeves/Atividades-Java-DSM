@@ -1,0 +1,101 @@
+
+import java.util.Scanner;
+
+public class exerci_1 {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner (System.in);
+
+        System.out.print ("Digite a idade: ");
+
+        int idade = ler.nextInt();
+
+        if (idade >= 18) {
+
+            System.out.println("Adulto");
+
+        }
+
+        else if (idade >= 60) {
+
+            System.out.println("Idosa");
+
+        }
+
+        else {
+
+            System.out.println("Menor");
+
+        }
+
+    }
+
+}
+
+import java.util.Scanner;
+
+public class exerci_2 {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner (System.in);
+
+        int soma = 0, atual = 1;
+
+        System.out.print ("Digite um numero: ");
+
+        int n = ler.nextInt();
+
+
+        for(int c = 0; c < n; c++){
+
+            soma += atual;
+
+             atual += 2;
+
+        }
+
+        System.out.println("A soma dos numeros dos impares: " + soma);
+
+    }
+
+}
+
+
+import java.util.Scanner;
+
+public class exerci_3 {
+
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner (System.in);
+
+        String[] nomes = new String[5];
+
+        for(int c = 0; c <= 4; c++){
+
+        System.out.print ("Digite um nome: ");
+
+        nomes [c] = ler.nextLine();
+
+        }
+
+        System.out.println("Digite outo nome para verificar");
+
+        String outronome = ler.nextLine();
+
+        for(int c = 0; c <=4; c++){
+
+            if(outronome.equals(nomes[c])){
+
+                System.out.println("Nome igual encotrados: " + c);
+
+            }
+
+        }
+
+    }
+
+}
+
