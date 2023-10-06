@@ -1,0 +1,116 @@
+package abstracoes;
+
+public class Impressora {
+
+    String modelo;
+
+    String wifi;
+
+    String tinta;
+
+    boolean ligado;
+
+    
+
+    void ligar() {
+
+    	if (modelo != null && wifi != null && tinta != null) {
+
+    		System.out.println("Imprimindo...");
+
+        	System.out.println("Imprimido");
+
+        	ligado = true;
+
+    	}
+
+    	else {
+
+        	System.out.println("Erro, sem tinta");
+
+        }
+
+    }
+
+        String desligar() {
+
+        	if ( ligado == true) {
+
+        	ligado = false;
+
+        	return "Desligando... Desligado";
+
+        	}
+
+        	else {
+
+        		return "Não está ligado";
+
+        	}
+
+        }
+
+  }
+
+ 
+
+package abstracoes;
+
+public class Principal2 {
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Impressora impre1 = new Impressora();
+
+		impre1.modelo = "Epson EcoTank";
+
+		impre1.wifi = "3G";
+
+		impre1.tinta = "Cheia";
+
+	    	 impre1.ligar();
+
+				System.out.println(impre1.desligar());
+ 
+
+		}
+
+	}
+
+
+package abstracoes;
+
+public class Negociador {
+
+    private String nome;
+    private int numeroIdentificacao;
+
+    public Negociador(String nome, int numeroIdentificacao) {
+        this.nome = nome;
+        this.numeroIdentificacao = numeroIdentificacao;
+    }
+
+    public void realizarNegociacao(String outraParte) {
+        System.out.println(nome + " está realizando uma negociação com " + outraParte);
+        // Lógica de negociação aqui
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getNumeroIdentificacao() {
+        return numeroIdentificacao;
+    }
+
+    public static void main(String[] args) {
+        Negociador negociador1 = new Negociador("João", 12345);
+        Negociador negociador2 = new Negociador("Maria", 67890);
+
+        negociador1.realizarNegociacao(negociador2.getNome());
+        negociador2.realizarNegociacao(negociador1.getNome());
+    }
+}
+    
