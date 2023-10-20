@@ -1,0 +1,123 @@
+package Automovel.carro;
+
+public class Carro {
+    private String marca;
+    private String modelo;
+    private int ano;
+    private double motor;
+    private double gasolina;
+    private double velocidade = 180;
+    private boolean ligado = false;
+
+    public Carro(String marca, String modelo, int ano, double motor, double gasolina) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.motor = motor;
+        this.gasolina = gasolina;
+    }
+    public void girarChave() {
+        if (ligado) {
+            System.out.println("Carro desligado");
+            ligado = false;
+        } else {
+            if (gasolina > 0) {
+                System.out.println("Carro ligado");
+                ligado = true;
+            } else {
+                System.out.println("Não é possível ligar o carro, pois a gasolina está em 0.");
+            }
+        }
+    }
+ 
+    public double getVelocidade() {
+		return velocidade;
+	}
+	public void setVelocidade(double velocidade) {
+		this.velocidade = velocidade;
+	}
+	
+	public double acelerar() {
+        if (ligado && gasolina > 0 && velocidade < 180) {
+            this.velocidade += 20;
+            gasolina -= 10;
+        } else if (!ligado) {
+            System.out.println("Carro desligado. Gire a chave para ligar o carro.");
+        } else if (gasolina <= 0) {
+            System.out.println("Carro sem gasolina. Desligando o carro.");
+            ligado = false;
+        } else {
+            System.out.println("Carro não pode acelerar. Verifique se a velocidade não está no limite.");
+        }
+        return this.velocidade;
+    }
+ 
+    public double frear() {
+        if (ligado && velocidade > 0) {
+            this.velocidade -= 20;
+            gasolina -= 5; 
+        } else if (!ligado) {
+            System.out.println("Carro desligado. Gire a chave para ligar o carro.");
+        } else {
+            System.out.println("Carro não pode frear. Verifique se a velocidade não está parada.");
+        }
+        return this.velocidade;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getMarca() {
+        return this.marca;
+    }
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public int getAno() {
+		return ano;
+	}
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+	public double getMotor() {
+		return motor;
+	}
+	public void setMotor(double motor) {
+		this.motor = motor;
+	}
+	public double getGasolina() {
+		return gasolina;
+	}
+	public void setGasolina(double gasolina) {
+		this.gasolina = gasolina;
+	}
+	public boolean isLigado() {
+		return ligado;
+	}
+	public void setLigado(boolean ligado) {
+		this.ligado = ligado;
+	}
+
+}
+
+
+package aplicacao.principal;
+
+import Automovel.carro.Carro;
+
+public class Principal {
+
+    public static void main(String[] args) {
+       // TODO Auto-generated method stub
+        Carro ford = new Carro("Ford", "Fusion", 2020, 2.4, 10);
+
+        ford.girarChave(); 
+        ford.acelerar();
+        ford.frear();
+        ford.girarChave(); 
+    }
+}
