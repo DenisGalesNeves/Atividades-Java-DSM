@@ -1,0 +1,196 @@
+class Pessoa {
+    private String nome;
+    private int idade;
+    private Endereco endereco;
+
+    public Pessoa(String nome, int idade, Endereco endereco) {
+        this.nome = nome;
+        this.idade = idade;
+        this.endereco = endereco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+}
+
+
+class Endereco {
+    private String rua;
+    private String cidade;
+
+    public Endereco(String rua, String cidade) {
+        this.rua = rua;
+        this.cidade = cidade;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+}
+
+
+class Disciplina {
+    private String nome;
+    private int codigo;
+
+    public Disciplina(String nome, int codigo) {
+        this.nome = nome;
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+}
+
+
+class Aluno {
+    private String nome;
+    private int matricula;
+    private Disciplina disciplina;
+
+    public Aluno(String nome, int matricula, Disciplina disciplina) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.disciplina = disciplina;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+}
+
+
+class Compra {
+    private String descricao;
+    private double valor;
+
+    public Compra(String descricao, double valor) {
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+}
+
+
+class Cupom {
+    private String codigo;
+    private Compra compra;
+
+    public Cupom(String codigo, Compra compra) {
+        this.codigo = codigo;
+        this.compra = compra;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+  
+        Endereco endereco = new Endereco("Rua ABC", "Cidade XYZ");
+        Pessoa pessoa = new Pessoa("Pedro", 14, endereco);
+
+        Disciplina disciplina = new Disciplina("Matematica", 101);
+        Aluno aluno = new Aluno("Maria", 12345, disciplina);
+
+        Compra compra = new Compra("Livro de Matematica", 50.0);
+        Cupom cupom = new Cupom("123ABC", compra);
+
+    }
+}
