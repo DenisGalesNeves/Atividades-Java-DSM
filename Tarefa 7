@@ -1,0 +1,76 @@
+abstract class Funcionario {
+    void baterponto() {}
+    void fecharcaixa() {}
+    void realizarvenda() {}
+    void solicitarmaterial() {}
+}
+ 
+public class Gerente extends Funcionario {
+    public void baterponto(int horas) {
+        System.out.println(horas);
+        if (horas == 12) {
+            System.out.println("Check Sem Atraso");
+        } else if (horas < 12) {
+            System.out.println("Check Sem Atraso");
+        } else {
+            System.out.println("Check Atrasado");
+        }
+    }
+ 
+    public void solicitarmaterial(int quantia) {
+        System.out.println(quantia);
+        System.out.println("Material(is) Pedido: " + quantia);
+    }
+}
+ 
+public class Vendedor extends Funcionario {
+    public void baterponto(int horas) {
+        System.out.println(horas);
+        if (horas == 12) {
+            System.out.println("Check Sem Atraso");
+        } else if (horas < 12) {
+            System.out.println("Check Sem Atraso");
+        } else {
+            System.out.println("Check Atrasado");
+        }
+    }
+ 
+    public void realizarvenda(int vendido) {
+        System.out.println(vendido);
+        System.out.println("Venda(s) feito: " + vendido);
+    }
+}
+ 
+public class Faxineiro extends Funcionario {
+    public void baterponto(int horas) {
+        System.out.println(horas);
+        if (horas == 12) {
+            System.out.println("Check Sem Atraso");
+        } else if (horas < 12) {
+            System.out.println("Check Sem Atraso");
+        } else {
+            System.out.println("Check Atrasado");
+        }
+ 
+    }
+ 
+    public void fecharcaixa(int fechar) {
+        System.out.println(fechar);
+        if (fechar == 15) {
+            System.out.println("Fechando");
+        } else {
+            System.out.println("Nao esta na hora de fechar");
+        }
+    }
+}
+ 
+public class Principal {
+    public static void main(String[] args) {
+        Gerente ger = new Gerente();
+        Vendedor ven = new Vendedor();
+        Faxineiro fax = new Faxineiro();
+        ger.baterponto(12);
+        ven.baterponto(12);
+        fax.baterponto(12);
+    }
+}
