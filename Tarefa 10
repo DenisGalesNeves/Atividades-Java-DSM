@@ -1,3 +1,4 @@
+1.
 package cliente.cadastro;
 
 import java.awt.EventQueue;
@@ -102,5 +103,152 @@ public class Principal extends JFrame {
         textField_6.setColumns(10);
         textField_6.setBounds(63, 226, 73, 20);
         contentPane.add(textField_6);
+    }
+}
+
+
+2.
+package produtos.app;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.util.ArrayList;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Principal extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Principal frame = new Principal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Principal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(36, 107, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(147, 11, 262, 239);
+		contentPane.add(textArea);
+		ArrayList<Object> listaproduto = new ArrayList<>();
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				minhalista.add(textField.getText());
+				System.out.println(listaproduto);
+				String prod = textArea.getText();
+				textArea.removeAll();
+				for(Object item : listaproduto) {
+					textArea.setText(prod + " \n " + (String)item);
+;				}
+			}
+		});
+		btnNewButton.setBounds(36, 138, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		
+	}
+}
+
+
+3.
+package calc.app;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+
+public class Principal extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private JTextField textField;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Principal frame = new Principal();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public Principal() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        textField = new JTextField();
+        textField.setBounds(36, 107, 86, 20);
+        contentPane.add(textField);
+        textField.setColumns(10);
+        
+        JButton btnNewButton = new JButton("Calcular Média");
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int numero = Integer.parseInt(textField.getText());
+                    ArrayList<Integer> numeros = new ArrayList<>();
+                    numeros.add(numero);
+
+                    double media = CalculadoraNumeros.calcularMedia(numeros);
+                    JOptionPane.showMessageDialog(null, "A média é: " + media);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro: Insira um número válido.");
+                } catch (IllegalArgumentException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+                }
+            }
+        });
+        btnNewButton.setBounds(36, 138, 130, 23);
+        contentPane.add(btnNewButton);
     }
 }
